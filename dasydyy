@@ -1,0 +1,57 @@
+ {/* 🔍 SEARCH */}
+      <TextInput
+        placeholder="Search ID or Name..."
+        value={search}
+        onChangeText={setSearch}
+        style={styles.search}
+      />
+
+      {/*  CARD */}
+      <View style={styles.card}>
+
+        {/*  TABLE HEADER */}
+        <View style={styles.tableHeader}>
+          <Text style={styles.colId}>ID</Text>
+          <Text style={styles.colName}>Name</Text>
+          <Text style={styles.colCourse}>Course</Text>
+          <Text style={styles.colLevel}>Level</Text>
+          <Text style={styles.colDelete}>Del</Text>
+        </View>
+
+        {/*  TABLE ROWS */}
+        <ScrollView>
+          {filtered.map((item) => (
+            <View key={item.id} style={styles.row}>
+
+              <Text style={styles.colId}>
+                {item.idno}
+              </Text>
+
+              <Text style={styles.colName}>
+                {item.lastname}, {item.firstname}
+              </Text>
+
+              <Text style={styles.colCourse}>
+                {item.course}
+              </Text>
+
+              <Text style={styles.colLevel}>
+                {item.level}
+              </Text>
+
+              {/*  DELETE BUTTON */}
+              <Text
+                style={styles.deleteBtn}
+                onPress={() => handleDelete(item.id)}
+              >
+                X
+              </Text>
+
+            </View>
+          ))}
+        </ScrollView>
+
+      </View>
+    </View>
+  );
+}
