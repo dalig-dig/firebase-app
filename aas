@@ -1,0 +1,15 @@
+  const handleDelete = (id) => {
+    Alert.alert(
+      "Delete",
+      "Are you sure you want to delete this student?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "OK",
+          onPress: () => {
+            firebase.database().ref("students/" + id).remove();
+          },
+        },
+      ]
+    );
+  };
